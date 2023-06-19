@@ -19,14 +19,12 @@ export function getVersionData(): {
 } {
   const parts: string[] = [];
 
-  /** Returns local version from `lerna.json` or `package.json` as `"0.28.2"` */
-  const localVersion = readCliPackageJson() || readVersionFromLernaJson();
+  const localVersion = readVersionFromLernaJson();
   if (localVersion) {
     parts.push(`v${localVersion}`);
   }
 
-  const {branch, commit} = readAndGetGitData();
-
+  const {commit} = readAndGetGitData();
 
   return {
     // Guard against empty parts array
