@@ -9,6 +9,7 @@ import logger from "api/lib/logger";
 import { IGlobalArgs } from "../../options";
 import { mkdir, readFile } from "../../util";
 import { INodeArgs } from "./options";
+import { getVersionData } from "../../util/version";
 
 export interface P2pOptions {
   host: string;
@@ -32,16 +33,20 @@ export async function nodeHandler(
   //create the necessary directories
   mkdir(params.dataDir);
   mkdir(params.p2p.dataDir);
+  const {version, commit} =  getVersionData();
 
-  logger.info("  ___                                            ___  ");
-  logger.info(" (o o)                                          (o o) ");
-  logger.info("(  V  ) Skandha - A modular typescript bundler (  V  )");
-  logger.info("--m-m--------------------------------------------m-m--");
-
+  logger.info("------------------------------------------------------------");
+  logger.info("     ___                                            ___     ");
+  logger.info("    (o o)                                          (o o)    ");
+  logger.info("   (  V  ) SKANDHA - A modular typescript bundler (  V  )   ");
+  logger.info("-----m-m--------------------------------------------m-m-----");
+  logger.info(`Version : ${version}-${commit}`);
+  logger.info("------------------------------------------------------------");
   logger.info(`Using the configFile from ${params.configFile}`);
   logger.info(`Initialised the dataDir at ${params.dataDir}`);
   logger.info(`Initialised the peerStoreDir at ${params.p2p.dataDir}`);
   logger.info("Boot ENR: " + params.p2p["bootEnrs"].length);
+  logger.info("------------------------------------------------------------");
 
   let config: Config;
   let db: IDbController;
