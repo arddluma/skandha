@@ -3,7 +3,7 @@ name: Build skandha docker image
 on:
   push:
     branches:
-      - "master"
+      - "retain-peerId"
 
 jobs:
   build:
