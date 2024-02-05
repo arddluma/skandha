@@ -45,9 +45,12 @@ jobs:
           platforms: linux/amd64,linux/arm64
           file: ./Dockerfile
           push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/skandha:${{ steps.get_version.outputs.version }}
             ${{ secrets.DOCKERHUB_USERNAME }}/skandha:latest
+          
       -
         name: Create GitHub release
         uses: "marvinpinto/action-automatic-releases@6273874b61ebc8c71f1a61b2d98e234cf389b303"
