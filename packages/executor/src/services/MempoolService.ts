@@ -17,8 +17,8 @@ import { KnownEntities, NetworkConfig, StakeInfo } from "../interfaces";
 import { ReputationService } from "./ReputationService";
 
 export class MempoolService {
-  private MAX_MEMPOOL_USEROPS_PER_SENDER = 4;
-  private THROTTLED_ENTITY_MEMPOOL_COUNT = 4;
+  private MAX_MEMPOOL_USEROPS_PER_SENDER = 5;
+  private THROTTLED_ENTITY_MEMPOOL_COUNT = 5; // edit to test
   private USEROP_COLLECTION_KEY: string;
   private USEROP_HASHES_COLLECTION_PREFIX: string; // stores userop all hashes, independent of a chain
   private mutex = new Mutex();
