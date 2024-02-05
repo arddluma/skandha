@@ -8,7 +8,7 @@
   <img src="https://public.etherspot.io/assets/etherspot.gif" width="200" height="200">
   <p>
     <b>
-      A modular, developer-friendly Typescript Bundler for Ethereum EIP-4337 Account Abstraction
+      A modular,ss developer-friendly Typescript Bundler for Ethereum EIP-4337 Account Abstraction
     </b>
    </p>
 </div>
